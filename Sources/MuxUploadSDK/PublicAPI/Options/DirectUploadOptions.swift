@@ -48,8 +48,8 @@ public struct DirectUploadOptions {
             self.retryLimitPerChunk = retryLimitPerChunk
         }
 
-        /// Initializes options for upload chunk transport
-        /// over the network
+        /// Initializes options that govern network transport
+        /// by the SDK
         ///
         /// - Parameters:
         ///     - chunkSize: the size of each file chunk in
@@ -228,9 +228,8 @@ public struct DirectUploadOptions {
     /// - Parameters:
     ///     - eventTracking: event tracking options for the
     ///     direct upload
-    ///     - inputStandardization: options to enable or
-    ///     disable standardizing the format of the direct
-    ///     upload inputs. True by default.
+    ///     - inputStandardization: options to request or skip
+    ///     input standardization. True by default.
     ///     To prevent the SDK from making any changes to the
     ///     format of the input use ``DirectUploadOptions.InputStandardization.skipped``
     ///     - chunkSize: The size of each file chunk sent by
@@ -251,6 +250,13 @@ public struct DirectUploadOptions {
         )
     }
 
+    /// - Parameters:
+    ///     - eventTracking: event tracking options for the
+    ///     direct upload
+    ///     - inputStandardization: options to enable or
+    ///     disable standardizing the format of the direct
+    ///     upload inputs, it is requested by default. To
+    ///     prevent the SDK from making any changes to the
     ///     format of the input use ``DirectUploadOptions.InputStandardization.skipped``
     ///     - chunkSize: the size of each file chunk in
     ///     bytes the SDK sends when uploading, default
