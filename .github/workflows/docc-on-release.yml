@@ -33,4 +33,11 @@ jobs:
         with:
           repository: muxinc/mobile-sdk-dev-docs
           token: ${{ secrets.MOBILE_SDK_DEV_DOCS_CI_ACCESS_TOKEN }}
-          path: docs-root
+          path: mobile-sdk-dev-docs-root
+      - name: Build SDK Docs
+        env:
+          target_scheme: MuxUploadSDK
+          devdocs_bucket: upload-swift
+          sdk_semantic_version: ${{ steps.version.outputs.version_name }}
+        run: |
+          ./scripts/build-docs.sh
